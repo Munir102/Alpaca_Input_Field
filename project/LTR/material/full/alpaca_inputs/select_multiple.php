@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<?php include_once("../partials/head1.php");?>
+
+<body>
+    <!-- Page content -->
+    <div class="page-content">
+        <!-- Main content -->
+        <div class="content-wrapper">
+            <div class="content">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-md-6">
+                        <div class="card">
+                        <div class="card-header header-elements-inline bg-info-600">
+                                <h6 class="card-title">Select Multiple</h6>
+                                <div class="header-elements">
+                                    <div class="list-icons">
+                                        <a class="list-icons-item" data-action="collapse"></a>
+                                        <a class="list-icons-item" data-action="reload"></a>
+                                        <a class="list-icons-item" data-action="remove"></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div id="alpaca-selectmultiple"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let lang = {}
+        lang.en = {
+            "title": "Alpaca Practice Form:",
+            "buttonLabel": "View Json",
+            "selectMultiple": "Select Multiple :",
+            "selectMultipleHelper": "Select single or multiple",
+        }
+        lang.bn = {
+            "title": "আলপাকা অনুশীলন ফর্ম:",
+            "buttonLabel": "জেসন দেখুন",
+            "selectMultiple": "একাধিক নির্বাচন করুন :",
+            "selectMultipleHelper": "একক বা একাধিক নির্বাচন করুন",
+        }
+        let activeLang = lang.en
+
+        $('#alpaca-selectmultiple').alpaca({
+            schema: {
+                "type": "array",
+                "items": {
+                    "type": "string",
+                    "enum": ["Select Multiple Option 1",
+                        "Select Multiple Option 2",
+                        "Select Multiple Option 3"
+                    ]
+                }
+            },
+            options: {
+                "type": "select",
+                "name": "selectmultiple",
+                "label": activeLang.selectMultiple,
+                "helper": activeLang.selectMultipleHelper,
+                "required": true
+            }
+        });
+    </script>
+</body>
